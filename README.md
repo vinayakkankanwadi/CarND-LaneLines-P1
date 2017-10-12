@@ -28,26 +28,32 @@ Input Image
 
 Step1: Grayscale Image
 ---
+Transform input image to a grayscale image for simpler edge detection
 <img src="writeup_images/grayscale.png" width="480" alt="Grayscale Image" />
 
 Step2: Gaussian Blur Image
 ---
+Apply Gaussian blur on grayscale image to normalize noise and sharpness
 <img src="writeup_images/gaussian_blur.png" width="480" alt="Gaussian Blur Image" />
 
 Step3: Canny Image
 ---
+Apply Canny Edge Detection algorithm to detect edges in the Gaussian blured image 
 <img src="writeup_images/canny.png" width="480" alt="Canny Image" />
 
 Step4: Region Mask Image
 ---
+Apply Region of Interest mask to retain the road and remove others
 <img src="writeup_images/region_mask.png" width="480" alt="Region Mask Image" />
 
 Step5: Hough Segmented
 ---
+Appply Hough transform we find line segments in the Region masked image. This using default draw_lines() function thus the result would be segmented image
 <img src="writeup_images/hough-segmented.png" width="480" alt="Hough Segmented Image" />
 
 Step6: Hough Image
 ---
+Modify using draw_lines() function we draw the lines on the frame inplace. draw_lines() takes all the lines found by the Hough transform, splits them into left/right line segments using their slope, averages multiple segments to get a single line each for left and right lane and extrapolates the line from bottom of ROI to the top. The function also performs a moving average over previously found line segments to smooth out the lane lines drawn.
 <img src="writeup_images/hough.png" width="480" alt="Hough Image" />
 
 Output Image
