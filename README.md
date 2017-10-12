@@ -22,7 +22,7 @@ Lane Finding Pipeline
 ---
 Lane finding pipeline consisted of following steps:
 
-Input Image 
+Step0: Input Image 
 ---
 <img src="writeup_images/input.png" width="480" alt="Input Image" />
 
@@ -48,16 +48,17 @@ Apply Region of Interest mask to retain the road and remove others
 
 Step5: Hough Segmented
 ---
-Appply Hough transform we find line segments in the Region masked image. This using default draw_lines() function thus the result would be segmented image
-<img src="writeup_images/hough-segmented.png" width="480" alt="Hough Segmented Image" />
+Appply Hough transform we find line segments in the Region masked image. The result images is segmented as we are using default draw_lines() function
 
 Step6: Hough Image
 ---
-Modify using draw_lines() function we draw the lines on the frame inplace. draw_lines() takes all the lines found by the Hough transform, splits them into left/right line segments using their slope, averages multiple segments to get a single line each for left and right lane and extrapolates the line from bottom of ROI to the top. The function also performs a moving average over previously found line segments to smooth out the lane lines drawn.
+Modify using draw_lines() function we draw the lines on the frame inplace. "draw_lines()" takes all the lines found by the Hough transform, splits them into left/right line segments using their slope, averages multiple segments to get a single line each for left and right lane and extrapolates the line from bottom of ROI to the top. The function also performs a moving average over previously found line segments to smooth out the lane lines drawn.
 <img src="writeup_images/hough.png" width="480" alt="Hough Image" />
 
-Output Image
+Step7: Output Image
 ---
+To get the final output superimpose the lane line image got from hough transform on the original image as it only contain lines highyed in red
+
 <img src="writeup_images/output.png" width="480" alt="Output Image" />
 
 
