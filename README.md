@@ -21,6 +21,27 @@ Reflection
 Lane Finding Pipeline
 ---
 
+Annotated Solid Lines Throughout Most Of The Video
+---
+
+Visually, the left and right lane lines are accurately annotated by solid lines throughout most of the video.
+
+SolidWhiteRight
+```
+https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/lane/test_videos_output/solidWhiteRight.mp4
+```
+
+solidYellowLeft
+```
+https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/lane/test_videos_output/solidYellowLeft.mp4
+```
+
+challenge
+```
+https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/lane/test_videos_output/challenge.mp4
+```
+
+
 Potential Shortcomings
 ---
 This pipeline works on all the provided sample data. The current pipeline is limited to detecting only the left and right bounds of the current lane. It cannot detect the curvature for a curved road. The other shortcoming is, if the lane lines are not detected for a few frames (due to missing lane lines or traffic), the moving average might yield a wrong result.
