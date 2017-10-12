@@ -10,47 +10,84 @@ When we drive, we use our eyes to decide where to go.  The lines on the road tha
 
 In this project you will detect lane lines in images using Python and OpenCV.  OpenCV means "Open-Source Computer Vision", which is a package that has many useful tools for analyzing images.  
 
-To complete the project, two files will be submitted: a file containing project code and a file containing a brief write up explaining your solution. We have included template files to be used both for the [code](https://github.com/udacity/CarND-LaneLines-P1/blob/master/P1.ipynb) and the [writeup](https://github.com/udacity/CarND-LaneLines-P1/blob/master/writeup_template.md).The code file is called P1.ipynb and the writeup template is writeup_template.md 
-
-To meet specifications in the project, take a look at the requirements in the [project rubric](https://review.udacity.com/#!/rubrics/322/view)
-
-
-Creating a Great Writeup
+Goals
 ---
-For this project, a great writeup should provide a detailed response to the "Reflection" section of the [project rubric](https://review.udacity.com/#!/rubrics/322/view). There are three parts to the reflection:
+- P1.ipynb  - pipeline that finds lane lines on the road [code](https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/lane/P1.ipynb)
+- README.md - written report to reflect the work [writeup](https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/lane/README.md)
 
-1. Describe the pipeline
-
-2. Identify any shortcomings
-
-3. Suggest possible improvements
-
-We encourage using images in your writeup to demonstrate how your pipeline works.  
-
-All that said, please be concise!  We're not looking for you to write a book here: just a brief description.
-
-You're not required to use markdown for your writeup.  If you use another method please just submit a pdf of your writeup. Here is a link to a [writeup template file](https://github.com/udacity/CarND-LaneLines-P1/blob/master/writeup_template.md). 
-
-
-The Project
+Reflection
 ---
 
-## If you have already installed the [CarND Term1 Starter Kit](https://github.com/udacity/CarND-Term1-Starter-Kit/blob/master/README.md) you should be good to go!   If not, you should install the starter kit to get started on this project. ##
+Lane Finding Pipeline
+---
+Lane finding pipeline consisted of following steps:
 
-**Step 1:** Set up the [CarND Term1 Starter Kit](https://classroom.udacity.com/nanodegrees/nd013/parts/fbf77062-5703-404e-b60c-95b78b2f3f9e/modules/83ec35ee-1e02-48a5-bdb7-d244bd47c2dc/lessons/8c82408b-a217-4d09-b81d-1bda4c6380ef/concepts/4f1870e0-3849-43e4-b670-12e6f2d4b7a7) if you haven't already.
+Step0: Input Image 
+---
+<img src="writeup_images/input.png" width="480" alt="Input Image" />
 
-**Step 2:** Open the code in a Jupyter Notebook
+Step1: Grayscale Image
+---
+Transform input image to a grayscale image for simpler edge detection
+<img src="writeup_images/grayscale.png" width="480" alt="Grayscale Image" />
 
-You will complete the project code in a Jupyter notebook.  If you are unfamiliar with Jupyter Notebooks, check out <A HREF="https://www.packtpub.com/books/content/basics-jupyter-notebook-and-python" target="_blank">Cyrille Rossant's Basics of Jupyter Notebook and Python</A> to get started.
+Step2: Gaussian Blur Image
+---
+Apply Gaussian blur on grayscale image to normalize noise and sharpness
+<img src="writeup_images/gaussian_blur.png" width="480" alt="Gaussian Blur Image" />
 
-Jupyter is an Ipython notebook where you can run blocks of code and see results interactively.  All the code for this project is contained in a Jupyter notebook. To start Jupyter in your browser, use terminal to navigate to your project directory and then run the following command at the terminal prompt (be sure you've activated your Python 3 carnd-term1 environment as described in the [CarND Term1 Starter Kit](https://github.com/udacity/CarND-Term1-Starter-Kit/blob/master/README.md) installation instructions!):
+Step3: Canny Image
+---
+Apply Canny Edge Detection algorithm to detect edges in the Gaussian blured image 
+<img src="writeup_images/canny.png" width="480" alt="Canny Image" />
 
-`> jupyter notebook`
+Step4: Region Mask Image
+---
+Apply Region of Interest mask to retain the road and remove others
+<img src="writeup_images/region_mask.png" width="480" alt="Region Mask Image" />
 
-A browser window will appear showing the contents of the current directory.  Click on the file called "P1.ipynb".  Another browser window will appear displaying the notebook.  Follow the instructions in the notebook to complete the project.  
+Step5: Hough Segmented
+---
+Appply Hough transform we find line segments in the Region masked image.  The draw_lines() is default thus result images is segmented  
+<img src="writeup_images/hough-segmented.png" width="480" alt="Hough Segmented Image" />
 
-**Step 3:** Complete the project and submit both the Ipython notebook and the project writeup
+Step6: Hough Image
+---
+Modify using draw_lines() function we draw the lines on the frame inplace. "draw_lines()" takes all the lines found by the Hough transform, splits them into left/right line segments using their slope, averages multiple segments to get a single line each for left and right lane and extrapolates the line from bottom of ROI to the top. The function also performs a moving average over previously found line segments to smooth out the lane lines drawn.
+<img src="writeup_images/hough.png" width="480" alt="Hough Image" />
 
-## How to write a README
-A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
+Step7: Output Image
+---
+To get the final output superimpose the lane line image got from hough transform on the original image as it only contain lines highyed in red
 
+<img src="writeup_images/output.png" width="480" alt="Output Image" />
+
+
+Annotated Solid Lines Throughout Most Of The Video
+---
+
+Visually, the left and right lane lines are accurately annotated by solid lines throughout most of the video.
+
+SolidWhiteRight
+```
+https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/lane/test_videos_output/solidWhiteRight.mp4
+```
+
+SolidYellowLeft
+```
+https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/lane/test_videos_output/solidYellowLeft.mp4
+```
+
+### Challenge
+```
+https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/lane/test_videos_output/challenge.mp4
+```
+
+
+Potential Shortcomings
+---
+This pipeline works on all the provided sample data. The current pipeline is limited to detecting only the left and right bounds of the current lane. It cannot detect the curvature for a curved road. The other shortcoming is, if the lane lines are not detected for a few frames (due to missing lane lines or traffic), the moving average might yield a wrong result.
+
+Possible Improvements
+---
+The pipeline can be improved to detect the curvature of the lane along with the bounds. Also, better regression model can be applied to identify missing data instead of using simple moving average to extrapolate missing lane lines.
