@@ -48,7 +48,7 @@ Apply Region of Interest mask to retain the road and remove others
 
 Step5: Hough Segmented
 ---
-Appply Hough transform we find line segments in the Region masked image. The result images is segmented as we are using default draw_lines() function
+<img src="writeup_images/hough-segmented.png" width="480" alt="Hough Segmented Image" />
 
 Step6: Hough Image
 ---
