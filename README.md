@@ -20,6 +20,13 @@ Reflection
 
 Lane Finding Pipeline
 ---
+Lane finding pipeline consisted of following steps:
+
+Step0: Input Image 
+---
+<img src="writeup_images/input.png" width="480" alt="Input Image" />
+
+
 
 Annotated Solid Lines Throughout Most Of The Video
 ---
