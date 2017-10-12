@@ -36,7 +36,7 @@ Step2: Gaussian Blur Image
 
 Step3: Canny Image
 ---
-<img src="writeup_images/canny_blur.png" width="480" alt="Canny Image" />
+<img src="writeup_images/canny.png" width="480" alt="Canny Image" />
 
 Step4: Region Mask Image
 ---
