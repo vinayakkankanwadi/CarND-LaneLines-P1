@@ -68,12 +68,12 @@ Annotated Solid Lines Throughout Most Of The Video
 
 Visually, the left and right lane lines are accurately annotated by solid lines throughout most of the video.
 
-SolidWhiteRight
+### SolidWhiteRight
 ```
 https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/master/test_videos_output/solidWhiteRight.mp4
 ```
 
-SolidYellowLeft
+### SolidYellowLeft
 ```
 https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/master/test_videos_output/solidYellowLeft.mp4
 ```
@@ -86,8 +86,9 @@ https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/master/test_videos_
 
 Potential Shortcomings
 ---
-This pipeline works on all the provided sample data. The current pipeline is limited to detecting only the left and right bounds of the current lane. It cannot detect the curvature for a curved road. The other shortcoming is, if the lane lines are not detected for a few frames (due to missing lane lines or traffic), the moving average might yield a wrong result.
+Current pipleline works well with the images and clips provided however has not been tested on other cases.
+Even in current test images it does not look smooth on curves as it is just lines extrapolated.
 
 Possible Improvements
 ---
-The pipeline can be improved to detect the curvature of the lane along with the bounds. Also, better regression model can be applied to identify missing data instead of using simple moving average to extrapolate missing lane lines.
+Curve Line Needs improvement and Better algorithm can be applied to identify missing data than extrapolate lane lines.
