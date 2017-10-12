@@ -12,8 +12,8 @@ In this project you will detect lane lines in images using Python and OpenCV.  O
 
 Goals
 ---
-- P1.ipynb  - pipeline that finds lane lines on the road [code](https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/lane/P1.ipynb)
-- README.md - written report to reflect the work [writeup](https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/lane/README.md)
+- P1.ipynb  - pipeline that finds lane lines on the road [code](https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/master/P1.ipynb)
+- README.md - written report to reflect the work [writeup](https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/master/README.md)
 
 Reflection
 ---
@@ -70,17 +70,17 @@ Visually, the left and right lane lines are accurately annotated by solid lines 
 
 SolidWhiteRight
 ```
-https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/lane/test_videos_output/solidWhiteRight.mp4
+https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/master/test_videos_output/solidWhiteRight.mp4
 ```
 
 SolidYellowLeft
 ```
-https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/lane/test_videos_output/solidYellowLeft.mp4
+https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/master/test_videos_output/solidYellowLeft.mp4
 ```
 
 ### Challenge
 ```
-https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/lane/test_videos_output/challenge.mp4
+https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/master/test_videos_output/challenge.mp4
 ```
 
 
