@@ -31,12 +31,12 @@ SolidWhiteRight
 https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/lane/test_videos_output/solidWhiteRight.mp4
 ```
 
-solidYellowLeft
+SolidYellowLeft
 ```
 https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/lane/test_videos_output/solidYellowLeft.mp4
 ```
 
-challenge
+Challenge
 ```
 https://github.com/vinayakkankanwadi/CarND-LaneLines-P1/blob/lane/test_videos_output/challenge.mp4
 ```
